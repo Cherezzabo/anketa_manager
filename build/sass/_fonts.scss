@@ -1,0 +1,45 @@
+//fonts
+@font-face {
+	font-family: 'Reforma';
+	src: url('../fonts/RFG49__W.eot');
+	src: local('Reforma Grotesk Web Light'), local('ReformaGroteskWebLight'),
+	     url('../fonts/RFG49__W.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/RFG49__W.woff') format('woff'),
+	     url('../fonts/RFG49__W.ttf') format('truetype'),
+	     url('../fonts/RFG49__W.svg#ReformaGroteskWebLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Reforma';
+	src: url('../fonts/RFG69__W.eot');
+	src: local('Reforma Grotesk Web Medium'), local('ReformaGroteskWebMedium'),
+	     url('../fonts/RFG69__W.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/RFG69__W.woff') format('woff'),
+	     url('../fonts/RFG69__W.ttf') format('truetype'),
+	     url('../fonts/RFG69__W.svg#ReformaGroteskWebMedium') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Reforma';
+	src: url('../fonts/RFG89__W.eot');
+	src: local('Reforma Grotesk Web Bold'), local('ReformaGroteskWebBold'),
+	     url('../fonts/RFG89__W.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/RFG89__W.woff') format('woff'),
+	     url('../fonts/RFG89__W.ttf') format('truetype'),
+	     url('../fonts/RFG89__W.svg#ReformaGroteskWebBold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Reforma';
+	src: url('../fonts/RFG79.eot');
+	src: url('../fonts/RFG79.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/RFG79.woff') format('woff'),
+	     url('../fonts/RFG79.ttf') format('truetype'),
+	     url('../fonts/RFG79.svg#ReformaGroteskWebBold') format('svg');
+	font-weight: 600;
+	font-style: normal;
+}

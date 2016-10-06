@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="RU_ru">
+    <head>
+        <meta charset="UTF-8">
+        <link href='assets/css/app.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="assets/js/app.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                APP.init();                
+            });
+        </script>
+        <title>Анкета менеджеров</title>
+    </head>
+    <body>
+        <section>
+        	<header class="header"></header>
+        	<section class="content-block">
+        		<div class="content-container">
+        			<header><h1>Опросник</h1></header>
+                                <form action="/form.php" method="post">
+    					<h2>Ф.И.О</h2>
+    					<p><input type="text" list="user_names" name="user_names" id="user_name_input" placeholder="Начните вводить фамилию">
+    					<datalist id="user_names">
+    					</datalist>
+        				<br>
+
+    					<h2>Выбрать строение</h2>
+    					<p><input type="text" list="building" name="building" id="house_input" placeholder="Начните вводить название дома">
+    					<datalist id="building">
+    					</datalist>
+                        <div id="questions_block">
+                        </div>
+    					<div class="input-other" style="display: none;">
+	    					<h2>Другое</h2>
+	    					<p><input type="text" name="other">
+    					</div>
+
+						<p><button disabled type="submit" class="button btn btn-danger">Сохранить</p>
+        			</form>
+        		</div>
+        	</section>
+        </section>
+    </body>
+</html>

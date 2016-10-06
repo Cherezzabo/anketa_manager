@@ -1,0 +1,146 @@
+h2 {
+	margin-top: 0;
+}
+
+.header {
+	display: block;
+	width: 100%;
+	height: 235px;
+	background: #9d372e;
+}
+
+.content-block {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+.content-container {
+	display: block;
+	position: relative;
+	top: -80px;
+	margin: 0 auto;
+	padding: 20px 133px;
+	width: 823px;
+	background: #fff;
+	
+	& header {
+		display: block;
+		height: 80px;
+		
+		& h1 {
+			font-family: "Reforma";
+			font-size: 36px;
+			text-transform: uppercase;
+			font-weight: 600;
+		}
+	}
+	
+	& form {
+		font-family: "Arial", sans-serif;
+		
+		& input[type=radio] {
+    		display:none;
+		}
+                
+		& input::-webkit-calendar-picker-indicator {
+                    opacity: 100;
+                }
+
+		& h2 {
+			font-size: 24px;
+			color: #404549;
+			font-style: italic;
+		}
+                
+                & select {
+                    background: #fff;
+                    border-top: 0px;
+                    position: absolute;
+                    border: 2px solid #d8d8d8;
+                    border-top: 0px;
+					border-radius: 0px; 
+                    margin-top: -48px;
+                    width: 437px !important;
+                    height: auto !important;
+                    
+                    & option {
+                        padding-left: 10px;   
+                    }
+                }
+                
+		& input[type=text] {
+			width: 437px;
+			height: 36px;
+			margin-bottom: 46px;
+			padding-left: 10px;
+			border: 2px solid #d8d8d8;
+                        outline: none;
+		}
+                
+                
+
+		& .input-other {
+			display: block;
+			width: auto;
+			height: auto;
+			padding: 0;
+			margin-top: 40px;
+		}
+
+		& p > input[type=radio] + label {
+			font-size: 15px;
+			color: #acb4b5;
+			font-style: normal;
+			font-weight: 400;
+		}
+
+		& p > input[type="radio"] + label span {
+		    display:inline-block;
+		    width:19px;
+		    height:19px;
+		    margin:-1px 4px 0 0;
+		    vertical-align:middle;
+		    cursor:pointer;
+		    border-radius:  50%;
+		    border: 2px solid #535353;
+		}
+
+		& p > input[type="radio"]:checked + label span{
+                    background-color: #535353;
+		}
+
+		& p > input {
+			margin-right: 5px;
+		}
+
+		& p > input + label {
+			margin-right: 122px;
+		}
+		
+		& .button[disabled], 
+		 .button[disabled], 
+		 .button[disabled]:hover, 
+		 .button[disabled]:focus, 
+		 .button[disabled]:active, 
+		 .button:enabled {
+			display: block;
+			width: 166px;
+			height: 43px;
+			background: #535353;
+			color: #fff;
+			border: 0px;
+			border-radius: 0px;
+			line-height: 32px;
+			text-transform: uppercase;
+		}
+
+		& .button:enabled {
+			background: #9d372e !important;
+
+			&:hover, :focus {
+				background: #cc473b !important;
+			}
+		}
+	}	
+}
