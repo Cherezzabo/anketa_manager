@@ -152,18 +152,23 @@ APP.listener = function () {
             case 13:
                 //enter
                 var givenOpt = opts[countForArrowsForName];
+                console.log(givenOpt.innerHTML);
                 var val = $('#user_name_input').val(givenOpt.innerHTML);
                 $('#user_names').css('display', 'none');
                 APP.generateQuestionsBlock(val.val());
+                countForArrowsForName = -1;
                 break;
         };
     });
 
-    //Подстановка строения в поле ввода кликом мыши
+    //Подстановка имени в поле ввода кликом мыши
     $('#user_names').on('click', function (event) {
         var target = event.target;
-        var val = $('#user_name_input').val(target.innerHTML);
-        $('#user_names').css('display', 'none');
+        if ($(target).is('li')){
+            var val = $('#user_name_input').val(target.innerHTML);
+            $('#user_names').css('display', 'none');
+            countForArrowsForName = -1;
+        };
     });
 
     // Просушка ввода поля Выбрать строение
@@ -212,6 +217,7 @@ APP.listener = function () {
                 var val = $('#house_input').val(givenOpt.innerHTML);
                 $('#building').css('display', 'none');
                 APP.generateQuestionsBlock(val.val());
+                countForArrowsForHouses = -1;
                 break;
         };
     });
@@ -219,10 +225,13 @@ APP.listener = function () {
     //Подстановка строения в поле ввода кликом мыши
     $('#building').on('click', function (event) {
         var target = event.target;
-        var val = $('#house_input').val(target.innerHTML);
-        $('#building').css('display', 'none');
-        APP.generateQuestionsBlock(val.val());
+        if ($(target).is('li')){
+            var val = $('#house_input').val(target.innerHTML);
+            $('#building').css('display', 'none');
+            APP.generateQuestionsBlock(val.val());
+        };
     });
 };
+
 
 //# sourceMappingURL=app.min.js.map
