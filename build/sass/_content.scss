@@ -5,34 +5,43 @@ h2 {
 .header {
 	display: block;
 	width: 100%;
-	height: 235px;
+	height: 188px;
 	background: #9d372e;
+	
+	& img {
+		display: block;
+		position: absolute;
+		margin-left: -10px;
+		bottom: 50px;
+	}
 }
 
 .content-block {
 	display: block;
 	position: relative;
 	width: 100%;
+	background: #fff;
+	margin-top: 50px;
 }
 
 .content-container {
 	display: block;
 	position: relative;
-	top: -80px;
 	margin: 0 auto;
-	padding: 20px 133px;
-	width: 823px;
-	background: #fff;
+	width: 447px;
+	height: 100%;
+	padding-left: 10px;
 	
 	& header {
 		display: block;
-		height: 80px;
+		margin-bottom: 45px;
 		
 		& h1 {
 			font-family: "Reforma";
 			font-size: 36px;
 			text-transform: uppercase;
 			font-weight: 600;
+			margin: 0;
 		}
 	}
 	
@@ -42,50 +51,80 @@ h2 {
 		& input[type=radio] {
     		display:none;
 		}
-                
-		& input::-webkit-calendar-picker-indicator {
-                    opacity: 100;
-                }
 
 		& h2 {
 			font-size: 24px;
 			color: #404549;
 			font-style: italic;
+			margin-bottom: 5px;
 		}
-                
-                & select {
-                    background: #fff;
-                    border-top: 0px;
-                    position: absolute;
-                    border: 2px solid #d8d8d8;
-                    border-top: 0px;
-					border-radius: 0px; 
-                    margin-top: -48px;
-                    width: 437px !important;
-                    height: auto !important;
-                    
-                    & option {
-                        padding-left: 10px;   
-                    }
-                }
-                
+		
 		& input[type=text] {
-			width: 437px;
-			height: 36px;
-			margin-bottom: 46px;
+			width: 438px;
+			height: 38px;
+			margin-bottom: 50px;
 			padding-left: 10px;
 			border: 2px solid #d8d8d8;
-                        outline: none;
+            outline: none;
 		}
-                
-                
+
+        & div#user_names, div#building {
+        	display: none;
+            background: #fff;
+            border-top: 0px;
+            position: absolute;
+            border: 2px solid #d8d8d8;
+            border-top: 0px;
+			border-radius: 0px; 
+            margin-top: -55px;
+            width: 438px !important;
+            height: auto !important;
+            font-weight: bold;
+            font-size: 12px;
+            
+            & ul {
+            	display: block;
+            	width: 100%;
+            	list-style: none;
+            	margin: 0;
+            	padding: 0;
+
+            	& > li {
+            		margin-bottom: 3px;
+            		padding-left: 10px;
+            	}
+
+            	& > li:hover, li:focus {
+            		background: #eee;
+            	}
+
+            	& > li:last-child {
+            		margin-bottom: 0px;
+            	}
+            }
+        }
+
+		& #questions_block h2 {
+			margin-bottom: 25px !important;
+		}          
+
+		& p > span {
+			text-decoration: underline;
+			font-size: 15px;
+			color: #7a7a79;
+			margin: 0;
+		}
+      
+		& p:nth-of-type(even) {
+			margin-bottom: 25px;
+		}
 
 		& .input-other {
 			display: block;
 			width: auto;
 			height: auto;
 			padding: 0;
-			margin-top: 40px;
+			margin-top: 45px;
 		}
 
 		& p > input[type=radio] + label {
@@ -127,16 +166,19 @@ h2 {
 			display: block;
 			width: 166px;
 			height: 43px;
-			background: #535353;
+			background: #999;
 			color: #fff;
 			border: 0px;
 			border-radius: 0px;
-			line-height: 32px;
+			line-height: 43px;
 			text-transform: uppercase;
+			cursor: not-allowed;
+			margin-bottom: 50px;
 		}
 
 		& .button:enabled {
 			background: #9d372e !important;
+			cursor: pointer !important;
 
 			&:hover, :focus {
 				background: #cc473b !important;

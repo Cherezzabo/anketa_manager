@@ -7,36 +7,42 @@
         <script src="assets/js/app.min.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
-                APP.init();                
+                APP.init();
+                $('#user_name_input').focus();             
             });
         </script>
         <title>Анкета менеджеров</title>
     </head>
     <body>
         <section>
-        	<header class="header"></header>
+        	<header class="header">
+                <div class="content-container">
+                    <img src="assets/img/logo.png" alt="логотип">  
+                </div>
+            </header>
         	<section class="content-block">
         		<div class="content-container">
         			<header><h1>Опросник</h1></header>
-                                <form action="/form.php" method="post">
-    					<h2>Ф.И.О</h2>
-    					<p><input type="text" list="user_names" name="user_names" id="user_name_input" placeholder="Начните вводить фамилию">
-    					<datalist id="user_names">
-    					</datalist>
-        				<br>
+                        <form action="/form.php" method="post">
+    					
+                        <h2>Ф.И.О</h2>
+                        <input type="text" name="user_names" id="user_name_input" placeholder="Начните вводить фамилию" tabindex="1">
+    					<div id="user_names">
+    					</div>
 
     					<h2>Выбрать строение</h2>
-    					<p><input type="text" list="building" name="building" id="house_input" placeholder="Начните вводить название дома">
-    					<datalist id="building">
-    					</datalist>
+    					<input type="text" name="building" id="house_input" placeholder="Начните вводить название дома">
+    					<div id="building">
+    					</div>
                         <div id="questions_block">
                         </div>
     					<div class="input-other" style="display: none;">
 	    					<h2>Другое</h2>
-	    					<p><input type="text" name="other">
+	    					<input type="text" name="other">
     					</div>
 
-						<p><button disabled type="submit" class="button btn btn-danger">Сохранить</p>
+						<button disabled type="submit" class="button">Сохранить
+                        </button>
         			</form>
         		</div>
         	</section>
