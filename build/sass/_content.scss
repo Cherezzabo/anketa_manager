@@ -105,9 +105,13 @@ h2 {
             }
         }
 
-		& #questions_block h2 {
-			margin-bottom: 25px !important;
-		}          
+		& #questions_block {
+			margin-bottom: 45px;
+
+			& h2 {
+				margin-bottom: 25px !important;
+			}   
+		}       
 
 		& p > span {
 			text-decoration: underline;
@@ -119,13 +123,14 @@ h2 {
 		& p:nth-of-type(even) {
 			margin-bottom: 25px;
 		}
+		
+		// ИНПУТЫ
 
 		& .input-other {
-			display: block;
+			display: none;
 			width: auto;
 			height: auto;
 			padding: 0;
-			margin-top: 45px;
 		}
 
 		& p > input[type=radio] + label {
@@ -147,7 +152,7 @@ h2 {
 		}
 
 		& p > input[type="radio"]:checked + label span{
-                    background-color: #535353;
+            background-color: #535353;
 		}
 
 		& p > input {
@@ -157,6 +162,8 @@ h2 {
 		& p > input + label {
 			margin-right: 122px;
 		}
+
+		// КНОПКА
 		
 		& .button[disabled], 
 		 .button[disabled], 

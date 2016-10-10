@@ -1,4 +1,8 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
 var APP = {};
+
 var resultName = "";
 var resultHouse = "";
 
@@ -14,7 +18,7 @@ APP.init = function () {
 
 /*-----------------------------------------------*/
 /* Загрузка слайдеров и прочей лабуды при  загрузке окна
- /*-----------------------------------------------*/
+/*-----------------------------------------------*/
 
 APP.load = function () {
 
@@ -27,7 +31,7 @@ APP.load = function () {
 
 /*-----------------------------------------------*/
 /* Парсеры и генераторы html-кода
- /*-----------------------------------------------*/
+/*-----------------------------------------------*/
 
 //Получение массива имен по текущим данным из строки ФИО
 APP.getJsonDataName = function (input) {
@@ -59,12 +63,7 @@ APP.getJsonDataHouse = function (input) {
         var houseNames = [];
         //При каждом элементе в объекте resultHouse сделать
         $.each(resultHouse, function (i) {
-            //Проверить есть ли у дома хотя бы 1-ый вопрос
-            //{["name": "Название дома", "questions": "{["1": "Вопрос"]}"],...}
-            if (resultHouse[i].questions[1]) {
-                //Если да, то добавить название дома в массив
-                houseNames.push(resultHouse[i].name);
-            };
+            houseNames.push(resultHouse[i].name);
         });
         //Переменная для хранения сгенерированной html-строки 
         var str = '<ul>';
@@ -86,42 +85,52 @@ APP.generateQuestionsBlock = function (val) {
         if (resultHouse[i].name == val) {
             var givenHouse = resultHouse[i];
             var str_q = '<h2>Выбрать пожелания</h2>';
-            for (var i in givenHouse.questions) {
-                if (givenHouse.questions[i]) {
-                    str_q += '<p><span>' + givenHouse.questions[i] + '</span></p><p><input type="radio" name="extra' + i + '" value="yes" id="extra' + i + '_yes"><label for="extra' + i + '_yes"><span></span>Да</label> <input type="radio" name="extra' + i + '" value="no" id="extra' + i + '_no"><label for="extra' + i + '_no"><span></span>Нет</label></p>';
-                };
-            };
-            $('#questions_block').html(str_q);
-            $('.input-other').css("display", "block");
+
+            $('.input-other > input').val('');
             $('button.button').attr("disabled", "disabled");
 
-            //Отслеживание кол-ва чекнутых радио-баттонов,
-            //если ровно половина, то активируется кнопка
-            var radioCount = 0;
-            var checkedCount = 0;
-            $(':radio').bind('click', function () {
-                radioCount = $(':radio');
-                checkedCount = $(':checked');
-                if (radioCount.length / checkedCount.length == 2) {
-                    $('button.button').removeAttr("disabled");
+            for (var i in givenHouse.questions) {
+                //Если дом содержит доп.вопросы
+                if (givenHouse.questions[i]) {
+                    str_q += '<p><span>' + givenHouse.questions[i] + '</span></p><p><input type="radio" name="extra' + i + '" value="yes" id="extra' + i + '_yes"><label for="extra' + i + '_yes"><span></span>Да</label> <input type="radio" name="extra' + i + '" value="no" id="extra' + i + '_no"><label for="extra' + i + '_no"><span></span>Нет</label></p>';
+                    $('#questions_block').html(str_q).css("display", "block");
+                    $('.input-other').css("display", "block");
+                    $('.input-other > input').removeAttr("required");
+                } else if (givenHouse.questions[1] == '') {
+                    str_q = '';
+                    $('#questions_block').html(str_q).css("display", "none");
+                    $('.input-other').css("display", "block");
+                    $('.input-other > input').attr("required", "required");
                 };
-            });
+            };
         };
+
+        //Отслеживание кол-ва чекнутых радио-баттонов,
+        //если ровно половина, то активируется кнопка
+        var radioCount = 0;
+        var checkedCount = 0;
+        $(':radio').bind('click', function () {
+            radioCount = $(':radio');
+            checkedCount = $(':checked');
+            if (radioCount.length / checkedCount.length == 2) {
+                $('button.button').removeAttr("disabled");
+            };
+        });
     });
 };
 
 /*-----------------------------------------------*/
 /* Прослушка
- /*-----------------------------------------------*/
+/*-----------------------------------------------*/
 APP.listener = function () {
 
     //Запрет отправки формы на Enter
-    $('form').on('keyup', function(e) {
-      var keyCode = e.keyCode || e.which;
-      if (keyCode === 13) { 
-        e.preventDefault();
-        return false;
-      }
+    $('form').on('keyup', function (e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
     });
 
     // Прослушка ввода поля ФИО
@@ -261,8 +270,24 @@ APP.listener = function () {
             APP.generateQuestionsBlock(val.val());
         };
     });
+
+    //Прослушка поля Другое
+    $('.input-other > input').bind('input', function () {
+        var inputOther = $('.input-other > input');
+        if ((inputOther.val() == '') && (inputOther.is('[required]'))) {
+            $('button.button').attr("disabled", "disabled");
+        } else if (inputOther.val() != '' && (inputOther.is('[required]'))) {
+            $('button.button').removeAttr("disabled");
+        }
+    });
 };
 
+$(document).ready(function () {
+    APP.init();
+    $('#user_name_input').focus();
+});
+
+},{}]},{},[1])
 
 
 //# sourceMappingURL=app.min.js.map
