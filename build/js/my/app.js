@@ -3,12 +3,8 @@
 
 var APP = {};
 
-var resultName = "";
-var resultHouse = "";
-
-var obj = {
-    testArr: ''
-};
+var resultName = {};
+var resultHouse = {};
 
 //Инициализация приложения
 APP.init = function () {
@@ -58,7 +54,7 @@ APP.getJsonDataHouse = function (input) {
 
     $.post('/json.php', { HOUSE: "Y" }, function (data) {
         //Полученный JSON массив преобразуем в объект
-        resultHouse = $.parseJSON(data);
+        resultHouse = $.parseJSON(data);     
         //Массив для хранения названий домов
         var houseNames = [];
         //При каждом элементе в объекте resultHouse сделать
